@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 17:06:08 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/09 23:01:42 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 15:08:10 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <unistd.h>
 //#include <fcntl.h>
 
-void    ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-    write(fd, &c, 1);
+	write(fd, &c, 1);
 }
 /*
 void    ft_putstr_fd(int fd, char *str)

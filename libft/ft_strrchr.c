@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 17:20:18 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/01 18:03:31 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 17:14:43 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 //#include <stdio.h>
 //#include <string.h>
 
-char    *ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
-    int i;
+	int	i;
 
-    i = (int)ft_strlen(str);
-    while (i >= 0 && str[i] != (char)c)
-        i--;
-    if (str[i] == (char)c)
-        return ((char *)(str + i));
-    return (NULL);
+	i = (int)ft_strlen(str);
+	while (i >= 0 && str[i] != (char)c)
+		i--;
+	if (str[i] == (char)c)
+		return ((char *)(str + i));
+	return (NULL);
 }
 /*
 int main(void)

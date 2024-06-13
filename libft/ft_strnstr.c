@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 00:11:11 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/02 00:34:19 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 17:12:51 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 //#include <stdio.h>
 //#include <string.h>
 
-char    *ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-    size_t  i;
+	size_t	i;
 
-    if (!*needle)
-        return ((char *)haystack);
-    if (!*haystack || len == 0)
-        return (NULL);
-    i = 0;
-    while (haystack[i] != '\0' && needle[i] != '\0'
-        && i < len && haystack[i] == needle[i])
-        i++;
-    if (needle[i] == '\0')
-        return ((char *)haystack);
-    return (ft_strnstr(haystack + 1, needle, len - 1));
+	if (!*needle)
+		return ((char *)haystack);
+	if (!*haystack || len == 0)
+		return (NULL);
+	i = 0;
+	while (haystack[i] != '\0' && needle[i] != '\0'
+		&& i < len && haystack[i] == needle[i])
+		i++;
+	if (needle[i] == '\0')
+		return ((char *)haystack);
+	return (ft_strnstr(haystack + 1, needle, len - 1));
 }
 /*
 int main(void)
@@ -40,12 +40,12 @@ int main(void)
     char *result1 = strnstr(haystack, needle, len);
 
     if (result) {
-        printf("Found '%s' in the first %zu characters: %s\n", needle, len, result);
+        printf("Found '%s' in 1st %zu characters: %s\n", needle, len, result);
     } else {
         printf("'%s' not found in the first %zu characters\n", needle, len);
     }
     if (result1) {
-        printf("Found '%s' in the first %zu characters: %s\n", needle, len, result1);
+        printf("Found '%s' in 1st %zu characters: %s\n", needle, len, result1);
     } else {
         printf("'%s' not found in the first %zu characters\n", needle, len);
     }

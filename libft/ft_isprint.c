@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:33:21 by linyao            #+#    #+#             */
-/*   Updated: 2024/05/30 21:40:58 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 14:35:06 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 //#include <stdio.h>
 //#include <ctype.h>
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    return (c >= 32 && c <= 126);
+	return (c >= 32 && c <= 126);
 }
 /*
 int main(void)

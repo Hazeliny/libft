@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:45:57 by linyao            #+#    #+#             */
-/*   Updated: 2024/05/30 22:03:25 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 17:29:48 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 //#include <string.h>
 //#include <stdio.h>
 
-size_t  ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-    size_t  len;
+	size_t	len;
 
-    len = 0;
-    while (str[len] != '\0')
-        len++;
-    return (len);
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	return (len);
 }
 /*
 int main(void)

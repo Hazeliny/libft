@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:03:08 by linyao            #+#    #+#             */
-/*   Updated: 2024/05/30 20:51:01 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 14:32:56 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 //#include <stdio.h>
 //#include <ctype.h>
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if (c >= 0 && c <= 127)
-        return (1);
-    return (0);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }
 /*
 int main(void)

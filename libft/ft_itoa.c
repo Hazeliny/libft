@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 22:24:55 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/06 23:18:39 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 14:49:34 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,48 @@
 #include <limits.h> 
 //#include <stdio.h>
 
-static int int_length(int n)
+static int	int_length(int n)
 {
-    int length;
+	int	length;
 
-    length = 0;
-    if (n <= 0)
-        length = 1; //对于负数和零，存放符号位
-    while (n != 0)
-    {
-        length++;
-        n /= 10;
-    }
-    return (length);
+	length = 0;
+	if (n <= 0)
+		length = 1;
+	while (n != 0)
+	{
+		length++;
+		n /= 10;
+	}
+	return (length);
 }
 
-char    *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-    int     len;
-    char    *str;
-    int     num;
+	int		len;
+	char	*str;
+	int		num;
 
-    if (n == INT_MIN)
-        return (ft_strdup("-2147483648"));
-    if (n == 0)
-        return (ft_strdup("0"));
-    len = int_length(n);
-    str = (char *)malloc(sizeof(char) * (len + 1));
-    if (!str)
-        return (NULL);
-    str[len] = '\0'; // 最后一位放终止符
-    num = n;
-    if (num < 0)
-    {
-        str[0] = '-';
-        num *= -1;
-    }
-    while (num > 0)
-    {
-        str[--len] = num % 10 + '0';
-        num /= 10;
-    }
-    /*
-    // 另一个做法，也是从后往前填充字符，也包含了n为零的情况
-    while (len > 0 && str[len - 1] != '-')
-    {
-        str[--len] = num % 10 + '0';
-        num /= 10;
-    }
-    */
-    return (str);
+	if (n == INT_MIN)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
+	len = int_length(n);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	num = n;
+	if (num < 0)
+	{
+		str[0] = '-';
+		num *= -1;
+	}
+	while (num > 0)
+	{
+		str[--len] = num % 10 + '0';
+		num /= 10;
+	}
+	return (str);
 }
 /*
 int main(void)

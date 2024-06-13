@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 14:35:45 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/03 15:04:09 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 15:28:49 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,27 @@
 //#include <stdio.h>
 //#include <string.h>
 
-char    *ft_strdup(const char *src)
+char	*ft_strdup(const char *src)
 {
-    size_t  len;
-    size_t  i;
-    char    *dest;
+	size_t	len;
+	size_t	i;
+	char	*dest;
 
-    len = 0;
-    i = 0;
-    if (!src)
-        return (NULL);
-    // 计算源字符串的长度
-    while (src[len] != '\0')
-        len++;
-    dest = (char *)malloc((len + 1) * sizeof(char)); // 包含存放'\0'的位置
-    if (!dest)
-        return (NULL);
-    while (i <= len)
-    {
-        dest[i] = src[i];
-        i++;
-    }
-    return (dest);
+	len = 0;
+	i = 0;
+	if (!src)
+		return (NULL);
+	while (src[len] != '\0')
+		len++;
+	dest = (char *)malloc((len + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	while (i <= len)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	return (dest);
 }
 /*
 int main(void)

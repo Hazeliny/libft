@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 11:49:24 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/01 12:27:47 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 15:05:21 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,28 @@
 //#include <stdio.h>
 //#include <string.h>
 
-void    *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-    unsigned char       *d;
-    const unsigned char *s;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-    if (dest == NULL || src == NULL)
-        return (NULL); //返回NULL表示错误
-    d = (unsigned char  *)dest;
-    s = (const unsigned char    *)src;
-
-    //如果src在dest前面，有内存重叠，则从后往前复制
-    if (s < d && d < s + n)
-    {
-        d += n;
-        s += n;
-        while (n--)
-            *(--d) = *(--s); //注意这里的减号位置
-    }
-    else //src在dest前且无重叠，或者src在dest后不管有无重叠，都从前往后复制
-    {
-        while (n--)
-            *(d++) = *(s++);
-    }
-    return (dest);
+	if (dest == NULL || src == NULL)
+		return (NULL);
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	if (s < d && d < s + n)
+	{
+		d += n;
+		s += n;
+		while (n--)
+			*(--d) = *(--s);
+	}
+	else
+	{
+		while (n--)
+			*(d++) = *(s++);
+	}
+	return (dest);
 }
 /*
 int main(void)
@@ -67,3 +65,10 @@ int main(void)
     return (0);
 }
 */
+//如果src在dest前面，有内存重叠，则从后往前复制
+//    if (s < d && d < s + n)
+//    else //src在dest前且无重叠，或者src在dest后不管有无重叠，都从前往后复制
+//    {
+//        while (n--)
+//            *(d++) = *(s++);
+//    }

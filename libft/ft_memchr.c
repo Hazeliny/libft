@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 23:08:02 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/01 23:26:45 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 14:52:07 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 //#include <stdio.h>
 //#include <string.h>
 
-void    *ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    const unsigned char *ptr;
-    unsigned char ch;
+	const unsigned char	*ptr;
+	unsigned char		ch;
 
-    ptr = (const unsigned char *)s;
-    ch = (unsigned char)c;
-    while (n--)
-    {
-        if (*ptr == ch)
-            return ((void *)ptr);
-        ptr++;
-    }
-    return (NULL);
+	ptr = (const unsigned char *)s;
+	ch = (unsigned char)c;
+	while (n--)
+	{
+		if (*ptr == ch)
+			return ((void *)ptr);
+		ptr++;
+	}
+	return (NULL);
 }
 /*
 int main(void)

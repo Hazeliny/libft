@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:56:23 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/01 13:21:20 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 15:47:00 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,26 @@
 //#include <stdio.h>
 //#include <string.h>
 
-size_t  ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-    size_t  i;
-    size_t  srclen;
-    const char  *s;
+	size_t		i;
+	size_t		srclen;
+	const char	*s;
 
-    srclen = 0;
-    s = src;
-    while (*s++)
-        srclen++;
-    if (dstsize == 0)
-        return (srclen);
-    i = 0;
-    // 确保目标缓冲区不被写入超过其容量的内容
-    while (i < dstsize - 1 && src[i] != '\0')
-    {
-        dst[i] = src[i];
-        i++;
-    }
-    // 确保目标字符串以空字符结尾
-    dst[i] = '\0';
-    return (srclen);
+	srclen = 0;
+	s = src;
+	while (*s++)
+		srclen++;
+	if (dstsize == 0)
+		return (srclen);
+	i = 0;
+	while (i < dstsize - 1 && src[i] != '\0')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (srclen);
 }
 /*
 int main(void)

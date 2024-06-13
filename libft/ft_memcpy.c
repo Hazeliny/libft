@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:41:31 by linyao            #+#    #+#             */
-/*   Updated: 2024/05/31 11:03:23 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 14:58:19 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 //#include <stdio.h>
 //#include <string.h>
 
-void    *ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    size_t              i;
-    unsigned char       *d;
-    const unsigned char *s;
+	size_t				i;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-    d = (unsigned char  *)dest;
-    s = (const unsigned char    *)src;
-    i = 0;
-    if (dest == NULL || src == NULL)
-        return (NULL);
-    while (i < n)
-    {
-        d[i] = s[i];
-        i++;
-    }
-    return (dest);
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	i = 0;
+	if (dest == NULL || src == NULL)
+		return (NULL);
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dest);
 }
 /*
 int main(void)

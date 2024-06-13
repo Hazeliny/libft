@@ -6,43 +6,36 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:01:23 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/04 16:21:18 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 15:41:19 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //#include <stdio.h>
 
-char    *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-    size_t  i;
-    size_t  j;
-    size_t  len1;
-    size_t  len2;
-    char    *result;
+	size_t	i;
+	size_t	j;
+	size_t	len1;
+	size_t	len2;
+	char	*result;
 
-    if (!s1 || !s2)
-        return (NULL);
-    len1 = ft_strlen(s1);
-    len2 = ft_strlen(s2);
-    result = (char  *)malloc((len1 + len2 + 1) * sizeof(char));
-    if (!result)
-        return (NULL);
-    i = 0;
-    while (i < len1)
-    {
-        result[i] = s1[i];
-        i++;
-    }
-    j = 0;
-    while (j < len2)
-    {
-        result[i] = s2[j];
-        j++;
-        i++;
-    }
-    result[i] = '\0';
-    return (result);
+	if (!s1 || !s2)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	result = (char *)malloc((len1 + len2 + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (i < len1)
+		result[i++] = s1[i++];
+	j = 0;
+	while (j < len2)
+		result[i++] = s2[j++];
+	result[i] = '\0';
+	return (result);
 }
 /*
 int main(void)
