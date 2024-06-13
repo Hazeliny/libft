@@ -6,12 +6,12 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:01:23 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/13 15:41:19 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 18:20:33 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
+#include <stdio.h>
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -28,20 +28,21 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	result = (char *)malloc((len1 + len2 + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
-	i = 0;
-	while (i < len1)
-		result[i++] = s1[i++];
+	i = -1;
+	while (++i < len1)
+		result[i] = s1[i];
 	j = 0;
 	while (j < len2)
 		result[i++] = s2[j++];
 	result[i] = '\0';
 	return (result);
 }
+
 /*
 int main(void)
 {
     char const    *s1 = "Hello ";
-    char const    *s2 = "World!";
+    char const   *s2 = "World!";
     char    *st = ft_strjoin(s1, s2);
 
     printf("concatenated: %s\n", st);

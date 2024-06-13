@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:28:43 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/13 17:20:58 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/13 20:34:35 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,74 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	s_len;
-	size_t	sub_len;
+	char	*str;
 	size_t	i;
-	char	*sub_str;
 
 	if (!s)
 		return (NULL);
-	s_len = ft_strlen(s);
-	if (start >= s_len)
+	i = 0;
+	if (ft_strlen(s) < start)
+		return (ft_strdup(""));
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
+	str = malloc(len + 1);
+	if (!str)
 		return (NULL);
-	sub_len = 0;
-	while (s[start + sub_len] && sub_len < len)
-		sub_len++;
-	sub_str = (char *)malloc((sub_len + 1) * sizeof(char));
+	while (i < len)
+		str[i++] = s[start++];
+	str[i] = '\0';
+	return (str);
+}
+/*
+{
+	char			*str;
+	unsigned int	i;
+
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
+	if (start >= ft_strlen(s))
+	{
+		str = (char *)malloc(sizeof(char));
+		if (str != NULL)
+			str[0] = '\0';
+		return (str);
+	}
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
+		return (NULL);
+	while (i < len)
+		str[i++] = s[start++];
+	str[i] = '\0';
+	return (str);
+}
+*/
+/*
+{
+	size_t	i;
+	size_t	j;
+	char	*sub_str;
+
+	sub_str = (char *)malloc((len + 1) * sizeof(char));
 	if (!sub_str)
 		return (NULL);
 	i = 0;
-	while (i < sub_len)
+	j = 0;
+	while (s[i])
 	{
-		sub_str[i] = s[start + i];
+		if (i >= start && j < len)
+		{
+			sub_str[j] = s[i];
+			j++;
+		}
 		i++;
 	}
-	sub_str[i] = '\0';
+	sub_str[j] = 0;
 	return (sub_str);
 }
+*/
 /*
 int main(void)
 {
