@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 14:35:45 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/13 15:28:49 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/14 16:08:51 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,34 @@
 
 char	*ft_strdup(const char *src)
 {
-	size_t	len;
+	char	*dest;
+
+	dest = (char *)malloc(ft_strlen(src) + 1);
+	if (!dest)
+		return (NULL);
+	ft_strlcpy(dest, src, (ft_strlen(src) + 1));
+	return (dest);
+}
+/*
+{
 	size_t	i;
 	char	*dest;
 
-	len = 0;
 	i = 0;
 	if (!src)
 		return (NULL);
-	while (src[len] != '\0')
-		len++;
-	dest = (char *)malloc((len + 1) * sizeof(char));
+	dest = (char *)malloc(ft_strlen(src) + 1);
 	if (!dest)
 		return (NULL);
-	while (i <= len)
+	while (i < ft_strlen(src))
 	{
 		dest[i] = src[i];
 		i++;
 	}
+	dest[i] = '\0';
 	return (dest);
 }
+*/
 /*
 int main(void)
 {

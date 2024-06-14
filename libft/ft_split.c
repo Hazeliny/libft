@@ -6,27 +6,88 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 19:41:40 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/13 15:22:16 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/14 19:36:24 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //#include <stdio.h>
 
+static int	ft_count_substr(const char *str, char c)
+{
+	int	i;
+	int	flag;
+
+	i = 0;
+	flag = 0;
+	while (*str)
+	{
+		if (*str != c && flag == 0)
+		{
+			flag = 1;
+			i++;
+		}
+		else if (*str == c)
+			flag = 0;
+		str++;
+	}
+	return (i);
+}
+
+static char	*ft_substr_dup(const char *str, int begin, int end)
+{
+	char	*sub_str;
+	int		i;
+
+	i = 0;
+	sub_str = malloc((end - begin + 1) * sizeof(char));
+	while (begin < end)
+		sub_str[i++] = str[begin++];
+	sub_str[i] = '\0';
+	return (sub_str);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	i;
+	size_t	j;
+	int		index;
+	char	**array;
+
+	array = malloc((ft_count_substr(s, c) + 1) * sizeof(char *));
+	if (!s || !array)
+		return (0);
+	i = 0;
+	j = 0;
+	index = -1;
+	while (i <= ft_strlen(s))
+	{
+		if (s[i] != c && index < 0)
+			index = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
+		{
+			array[j++] = ft_substr_dup(s, index, i);
+			index = -1;
+		}
+		i++;
+	}
+	array[j] = 0;
+	return (array);
+}
+
+/*
 // 计算要分割的子字符串substrings的个数
 static size_t	ft_sub_count(char const *s, char c)
 {
 	size_t	i;
 	size_t	num;
 
-	if (!s)
-		return (0);
+	if (!s || c == '\0')
+		return (1);
 	i = 0;
+	num = 0;
 	while (s[i] == c)
-	{
-		num = 0;
 		i++;
-	}
 	if (s[i] != c && s[i] != '\0')
 		num = 1;
 	while (s[i])
@@ -56,11 +117,20 @@ char	**ft_split(char const *s, char c)
 {
 	char	**array;
 	size_t	array_index;
-	size_t	sub_len;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
+	if (c == '\0')
+	{
+		array = (char **)ft_calloc(2, sizeof(char *));
+		if (!array)
+			return (NULL);
+		array[0] = ft_strdup(s);
+		return (array);
+	}
 	array = (char **)ft_calloc((ft_sub_count(s, c) + 1), sizeof(char *));
-	if (!s || !array)
+	if (!array)
 		return (NULL);
 	i = 0;
 	array_index = 0;
@@ -68,28 +138,28 @@ char	**ft_split(char const *s, char c)
 	{
 		while (s[i] == c)
 			i++;
-		sub_len = ft_sub_len(s, i, c);
-		array[array_index] = ft_substr(s, i, sub_len);
-		i += sub_len;
+		array[array_index] = ft_substr(s, i, ft_sub_len(s, i, c));
+		i += ft_sub_len(s, i, c);
 		array_index++;
 	}
 	return (array);
 }
-
+*/
 /*
 int main(void)
 {
     char const  *s = "aaaxyza782a9e";
-    char        c = 'a';
+    char        c = '\0';
     size_t      j = 0;
     
-    printf("%zu\n", ft_subCount(s, c));
-    printf("%zu\n", ft_subLen(s, 11, c));
-    while (j < ft_subCount(s, c))
+    printf("%zu\n", ft_sub_count(s, c));
+    printf("%zu\n", ft_sub_len(s, 11, c));
+    while (j < ft_sub_count(s, c))
     {
         printf("%s\n", ft_split(s, c)[j]);
         j++;
     }
     return (0);
 }
+// sub_len = ft_sub_len(s, i, c);
 */
