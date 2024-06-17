@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.co      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 17:43:45 by linyao            #+#    #+#             */
-/*   Updated: 2024/06/16 16:44:08 by linyao           ###   ########.fr       */
+/*   Updated: 2024/06/17 12:54:18 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		new_list->next = ft_lstnew(f(lst->content));
 		if (!new_list->next)
 		{
+			del(new_list->content);
 			ft_lstclear(&begin, del);
 			return (NULL);
 		}
